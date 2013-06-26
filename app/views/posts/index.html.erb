@@ -1,0 +1,8 @@
+<h1>List of Posts</h1>
+
+<ul>
+<% @posts.each do |post| %>
+<li><%= post.text %></li>
+<li><%= link_to "View Post", post_path(post.id) %></li>
+<% end %>
+</ul>
