@@ -9,7 +9,7 @@ describe Post do
     end
     it "requires a user_id to create a post" do
       post = FactoryGirl.build(:post, user_id: nil)
-      expect(post.valid?).to eq false
+      expect(post.valid?).to be_false
     end
   end
 
