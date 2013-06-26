@@ -44,6 +44,12 @@ a:hover.navbar-link {
   float: left;
 }
 
+#topnav #user {
+  color: white;
+  float: right;
+  margin: 8px 10px;
+  padding: 5px;
+}
 
 body {
   font-family: 'Lato', sans-serif;
