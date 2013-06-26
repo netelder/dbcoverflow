@@ -1,2 +1,2 @@
 <div class="post_title"><%= @post.text %></div>
-<p>A suggestion from <%= post_author(@post.user_id) %></p>
+<p>A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></p>

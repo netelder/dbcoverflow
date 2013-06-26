@@ -4,6 +4,8 @@ DbcOverflow::Application.routes.draw do
 
   devise_for :users
 
+  get 'users/:id' => 'users#show', as: :user
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -5,7 +5,7 @@
 <ul class="posts_list">
 <% @posts.each do |post| %>
 <li class="post_title"><%= post.text %></li>
-<li class="post_link">A suggestion by <%= post_author(post.user_id) %>.</li>
+<li class="post_link">A suggestion by <%= link_to post_author(post.user_id), user_path(post.user_id) %>.</li>
 <li class="post_link"> <%= link_to "View Discussion", post_path(post.id) %></li>
 <% end %>
 </ul>
