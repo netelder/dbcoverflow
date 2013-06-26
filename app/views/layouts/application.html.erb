@@ -6,9 +6,10 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+<body style="margin: 0;">
+  <%= render "shared/topnav" %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 <%= yield %>
 
 </body>

@@ -1,6 +1,6 @@
 DbcOverflow::Application.routes.draw do
   resources :posts
-  root :to => "users#index"
+  root :to => "posts#index"
 
   devise_for :users
 
