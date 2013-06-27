@@ -1,5 +1,5 @@
 ## DBC Overflow
-[DevBootcamp (DBC)](www.devbootcamp.com) is an intense, amazing, overwhelming, inspiring experience.
+[DevBootcamp (DBC)](http://www.devbootcamp.com) is an intense, amazing, overwhelming, inspiring experience.
 
 At the core of DBC is an extensive feedback system.  Students (called 'boots') give feedback to each other
 after each pairing session.  Boots also give weekly feedback to the staff, as well as after each three-week phase.
