@@ -3,6 +3,7 @@
   <div id='post'>
     <p><%= @post.text %></p>
     <p>A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></p>
+    <%= link_to "Add Comment", new_post_comment_path(@post) %>
   </div>
   <div id="comment_box">
     <%= render partial: "comments", collection: @comments %>
