@@ -1,6 +1,9 @@
 DbcOverflow::Application.routes.draw do
   resources :posts do
-    resources :comments
+    member { post :vote }
+    resources :comments do
+      member { post :vote }
+    end
   end
   root :to => "posts#index"
 

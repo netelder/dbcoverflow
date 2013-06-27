@@ -3,6 +3,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
-  
+
   validates :user_id, presence: true
+
+  has_reputation :votes, source: :user, aggregated_by: :sum
 end

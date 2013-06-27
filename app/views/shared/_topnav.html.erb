@@ -3,7 +3,8 @@
   <% if user_signed_in? %>
     <%= link_to 'Account', edit_user_registration_path, :class => 'navbar-link' %>
     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <span id="user">Logged in as <strong><%= current_user.email %></strong>.</span>
+    <span id="user">Logged in as <strong><%= current_user.email %></strong>
+    &nbsp&nbspVotes: (<%= current_user.reputation_for(:votes).to_i %>)</span>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
     <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>

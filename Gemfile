@@ -6,6 +6,8 @@ gem 'devise'
 gem 'sextant'
 gem 'jquery-rails'
 
+gem 'activerecord-reputation-system', require: 'reputation_system'
+
 gem 'redis-objects'
 
 # Gems used only for assets and not required

@@ -1,4 +1,8 @@
 <div class="comment">
-  <p><%= comments.text %></p>
-  <p>By: <%= comments.user.email %></p>
+	<p><%= comments.text %></p>
+	<p>By: <%= comments.user.email %></p>
+	<% if current_user %>
+		<%= link_to "up", vote_post_comment_path(post_id: @post.id, type: "up"), method: "post" %>
+		<%= link_to "down", vote_post_comment_path(post_id: @post.id, type: "down"), method: "post" %>
+	<% end %>
 </div>

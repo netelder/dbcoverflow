@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   def index
-    @posts = Post.all
+    @posts = Post.find_with_reputation(:votes, :all, order: "votes desc")
   end
 
   def show
@@ -22,4 +22,13 @@ class PostsController < ApplicationController
       render :new
     end 
   end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @post = Post.find(params[:id])
+    @post.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thanks for voting on a post!"
+  end
 end
+
+
