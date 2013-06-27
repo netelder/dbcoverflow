@@ -1,7 +1,5 @@
 class AddValidationToPostsTitle < ActiveRecord::Migration
   def change
-  	change_column :posts do |t|
-  		t.string :title, :null => false, :default => ""
-  	end
+  	change_column :posts, :title, :string, :null => false, :default => ""
   end
 end
