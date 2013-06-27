@@ -1,3 +1,10 @@
-<div class="post_title"><%= @post.title %></div>
-<p><%= @post.text %></p>
-<p>A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></p>
+<div class="post_page">
+  <div class="post_title"><%= @post.title %></div>
+  <div id='post'>
+    <p><%= @post.text %></p>
+    <p>A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></p>
+  </div>
+  <div id="comment_box">
+    <%= render partial: "comments", collection: @comments %>
+  </div>
+</div>

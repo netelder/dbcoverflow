@@ -1,5 +1,7 @@
 DbcOverflow::Application.routes.draw do
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   root :to => "posts#index"
 
   devise_for :users
@@ -13,7 +15,7 @@ DbcOverflow::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  # Sample of named route:
+  # Sample of named route:key => "value", 
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
