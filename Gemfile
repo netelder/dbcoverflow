@@ -25,6 +25,7 @@ end
 
 group :test do
   gem 'faker'
+  gem 'launchy'
 end
 
 # To use ActiveModel has_secure_password
