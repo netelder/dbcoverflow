@@ -1,6 +1,7 @@
 <div class="form">
 <%= form_for @post do |f| %>
-  <div><%= f.text_area :text, size: "60x10", placeholder: "Feedback goes here!" %></div>
+  <%= f.text_field :title, placeholder: "Summary of your feedback", size: "70" %>
+  <div><%= f.text_area :text, size: "60x10", placeholder: "Give us more detail here!" %></div>
   <%= f.submit "Give Feedback" %>
 <% end %>
 </div>
