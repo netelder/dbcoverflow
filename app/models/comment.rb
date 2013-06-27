@@ -8,6 +8,4 @@ class Comment < ActiveRecord::Base
   validates :user_id, presence: true
   validates :post_id, presence: true
   validates :text, presence: true
-
-
 end
