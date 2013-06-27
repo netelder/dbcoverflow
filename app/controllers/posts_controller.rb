@@ -22,4 +22,21 @@ class PostsController < ApplicationController
       render :new
     end 
   end
+
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @comment = Post.find(params[:id])
+    @comment.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thanks for voting on a comment!"
+  end
+
+  def vote
+    vote = current_user.votes.new(value: params[:value], voteable_id: params[:id])
+    if vote.save
+      redirect_to :back, notice: "Thank you for voting."
+    else
+      redirect_to :back, alert: "You can't vote
+    end
+  end
+
 end
