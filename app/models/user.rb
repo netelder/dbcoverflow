@@ -15,13 +15,17 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  def find_vote(voteable)
+    self.votes.find_by_voteable_id_and_voteable_type(voteable.id, voteable.class.name)
+  end
+
   def vote_value(voteable)
-    vote_found = self.votes.find_by_voteable_id_and_voteable_type(voteable.id, voteable.class.name)
-    vote_found ? vote_found.value : 0
+    vote = find_vote(voteable)
+    vote ? vote.value : 0
   end
 
   def vote_id(voteable)
-    vote_found = self.votes.find_by_voteable_id_and_voteable_type(voteable.id, voteable.class.name)
-    vote_found ? vote_found.id : 0
+    vote = find_vote(voteable)
+    vote ? vote.id : 0
   end
 end
