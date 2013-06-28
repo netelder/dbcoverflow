@@ -1,11 +1,16 @@
 <h1>DBC Overflow: A Place for Public Feedback</h1>
 <% if user_signed_in? %>
-<h2><%= link_to "Give Feedback", new_post_path  %></h2>
+  <h2><%= link_to "Give Feedback", new_post_path  %></h2>
 <% end %>
 <ul class="posts_list">
   <% @posts.each do |post| %>
-  <li class="post_title"><%= post.title %> [<%= post.score %>] </li>
-  <li class="post_link">A suggestion by <%= link_to post_author(post.user_id), user_path(post.user_id) %>.</li>
-  <li class="post_link"> <%= link_to "View Discussion", post_path(post.id) %></li>
+    <li class="post_title"><%= post.title %> [<%= post.score %>] </li>
+    <ul><li class="post_body"><%= post.text %> </li></ul>
+    <% if user_signed_in? %>
+      <ul class="post_body">
+      <li class="post_author">A suggestion by <%= link_to post_author(post.user_id), user_path(post.user_id) %>.</li>
+      <li class="post_link"> <%= link_to "View Discussion", post_path(post.id) %></li>
+    </ul>
+    <% end %>
   <% end %>
 </ul>

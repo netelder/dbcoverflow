@@ -4,3 +4,8 @@
   box-shadow: 0 5px 5px #363636;
 }
 */
+
+.post_body{
+	list-style-type: none;
+	width: 80%;
+}
