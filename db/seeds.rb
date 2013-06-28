@@ -8,6 +8,10 @@
 
 require 'faker'
 
-10.times do
-  Post.create(text: Faker::Lorem.sentence)
+10.times do |i|
+  User.create(email: Faker::Internet.email, password: 'password')
+  10.times do
+    Post.create(title: Faker::Lorem.sentence, text: Faker::Lorem.paragraph, user_id: i+1)
+  end
 end
+

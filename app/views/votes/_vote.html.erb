@@ -1,0 +1,17 @@
+<div class="vote-buttons" data-vote-value='<%= current_user.vote_value(voteable) %>' data-vote-id="<%= current_user.vote_id(voteable) %>">
+
+  <%= link_to image_tag('up_arrow.ico', height: "20", width: "20"), 
+      votes_path(:vote => { :voteable_type => voteable.class.name, 
+                            :voteable_id => voteable.id, value: 1 }), 
+      :method => :post, 
+      remote: true, 
+      :class => "up" %>
+
+  <%= link_to image_tag('down_arrow.ico', height: "20", width: "20"), 
+      votes_path(:vote => { :voteable_type => voteable.class.name, 
+                            :voteable_id => voteable.id, value: -1 }), 
+      :method => :post, 
+      remote: true, 
+      :class => "down" %>
+
+</div>
