@@ -1,9 +1,10 @@
 <div class="comment">
-  <div class="vote_arrows">
-    <%= render partial: 'votes/vote', :locals => { :voteable => comments } %>
-  </div>
-  <div class="comment_box">
-    <p><%= comments.text %></p>
-    <p>By: <%= comments.user.email %></p>
-  </div>
+
+	<div class="comment_box">
+		<p><%= comments.text %> [<%= comments.score %>]</p>
+		<div class="vote_arrows">
+			<%= render partial: 'votes/vote', :locals => { :voteable => comments } %>
+		</div>
+		<p>By: <%= comments.user.email %></p>
+	</div>
 </div>

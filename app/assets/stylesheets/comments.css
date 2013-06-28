@@ -1,0 +1,9 @@
+.comment {
+	border: dotted gray 1px;
+	margin-left: 20px;
+	width: 80%;
+}
+
+li .author {
+	color: gray;
+}

@@ -4,7 +4,7 @@
 <% end %>
 <ul class="posts_list">
   <% @posts.each do |post| %>
-  <li class="post_title"><%= post.title %></li>
+  <li class="post_title"><%= post.title %> [<%= post.score %>] </li>
   <li class="post_link">A suggestion by <%= link_to post_author(post.user_id), user_path(post.user_id) %>.</li>
   <li class="post_link"> <%= link_to "View Discussion", post_path(post.id) %></li>
   <% end %>
