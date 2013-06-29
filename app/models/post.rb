@@ -7,9 +7,4 @@ class Post < ActiveRecord::Base
 
   
   validates :user_id, presence: true
-
-  # def score
-  # 	self.votes.pluck('value').inject(:+).to_i # to_i to deal with nil case
-  # end
-
 end

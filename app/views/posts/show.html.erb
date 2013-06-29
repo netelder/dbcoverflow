@@ -1,7 +1,7 @@
 <div class="post_page">
   <div class="post_title">
     <%= render partial: 'votes/vote', :locals => { :voteable => @post } %>
-    <%= @post.title %> [<%= @post.score %>]
+    <%= @post.title %>
   </div>
   <div id='post'>
     <p><%= @post.text %></p>
