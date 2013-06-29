@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :text, :title, :user_id
+  attr_accessible :text, :title, :user_id, :score
 
   belongs_to :user
   has_many :comments
@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
   
   validates :user_id, presence: true
 
-  def score
-  	self.votes.pluck('value').inject(:+).to_i # to_i to deal with nil case
-  end
+  # def score
+  # 	self.votes.pluck('value').inject(:+).to_i # to_i to deal with nil case
+  # end
 
 end

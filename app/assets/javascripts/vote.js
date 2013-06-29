@@ -24,13 +24,20 @@ var Vote = {
   upVote: function(e, data) {
     var $upButton = $(this);
     var $downButton = $(this).next();
+    Vote.updateScore(e, data);
     Vote.modifyVotes($upButton, $downButton, data.vote_id);
   },
 
   downVote: function(e, data) {
     var $downButton = $(this);
     var $upButton = $(this).prev();
+    Vote.updateScore(e, data);
     Vote.modifyVotes($downButton, $upButton, data.vote_id);
+  },
+
+  updateScore: function(e, data) {
+    console.log(e);
+    console.log(data);
   },
 
   modifyVotes: function(live_button, disabled_button, vote_id) {
