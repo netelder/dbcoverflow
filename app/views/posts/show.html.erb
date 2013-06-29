@@ -1,8 +1,8 @@
 <div class="post_page">
-  <div class="post_title"><%= @post.title %> [<%= @post.score %>]</div>
-      <div class="vote_arrows">
-      <%= render partial: 'votes/vote', :locals => { :voteable => @post } %>
-    </div>
+  <div class="post_title">
+    <%= render partial: 'votes/vote', :locals => { :voteable => @post } %>
+    <%= @post.title %>
+  </div>
   <div id='post'>
     <p><%= @post.text %></p>
     <p class="author">A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></p>

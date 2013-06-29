@@ -1,16 +1,21 @@
 class VotesController < ApplicationController
   
   def create
-    p params
+    voteable_object = get_voteable_object(params[:vote])
     vote = Vote.create(params[:vote])
     current_user.votes << vote
-    render :json => { vote_id: vote.id }
+    increment_score(voteable_object, vote.value)
+    
+    render :json => { vote_id: vote.id, updated_score: voteable_object.score }
   end
 
   def update
+    voteable_object = get_voteable_object(params[:vote])
     vote = Vote.find(params[:id])
     vote.update_attributes(params[:vote])
-    render :json => {}
+    increment_score(voteable_object, vote.value)
+
+    render :json => { vote_id: vote.id, updated_score: voteable_object.score }
   end
 
 end

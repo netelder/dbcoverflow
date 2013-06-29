@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
 
-  attr_accessible :text, :user_id, :post_id
+  attr_accessible :text, :user_id, :post_id, :score
 
   belongs_to :user
   belongs_to :post
@@ -9,9 +9,4 @@ class Comment < ActiveRecord::Base
   validates :user_id, presence: true
   validates :post_id, presence: true
   validates :text, presence: true
-
-  def score
-  	self.votes.pluck('value').inject(:+).to_i # to_i to deal with nil case
-  end
-
 end

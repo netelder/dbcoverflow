@@ -24,13 +24,23 @@ var Vote = {
   upVote: function(e, data) {
     var $upButton = $(this);
     var $downButton = $(this).next();
+    var that = this;
+    Vote.updateScore(e, data, that, data.vote_id);
     Vote.modifyVotes($upButton, $downButton, data.vote_id);
   },
 
-  downVote: function(e, data) {
+  downVote: function(e, data, that) {
     var $downButton = $(this);
     var $upButton = $(this).prev();
+    var $that = $(this);
+    Vote.updateScore(e, data, $that, data.vote_id);
     Vote.modifyVotes($downButton, $upButton, data.vote_id);
+  },
+
+  updateScore: function(e, data, that, vote_id) {
+    console.log(data);
+    score_span = $(that).parent().find('.score');
+    $(score_span).html(data.updated_score);
   },
 
   modifyVotes: function(live_button, disabled_button, vote_id) {

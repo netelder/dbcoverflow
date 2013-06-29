@@ -12,6 +12,18 @@
  *= require_tree .
  */
 
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  width: 100%;
+  margin: 0;
+  background-image: url('dbc.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  background-position: 0% 50%;
+}
+
 input {
   margin: 10px 0;
 }
@@ -51,10 +63,7 @@ a:hover.navbar-link {
   padding: 5px;
 }
 
-body {
-  font-family: 'Lato', sans-serif;
-  font-weight: 400;
-}
+
 
 h1 {
   font-weight: 900;

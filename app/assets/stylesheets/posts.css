@@ -9,3 +9,13 @@
 	list-style-type: none;
 	width: 80%;
 }
+
+/*.post_index {
+	columns: 2;
+	-webkit-columns: 2;
+	-moz-columns: 2;
+}*/
+
+.comment_div{
+	border-left: 30px;
+}
