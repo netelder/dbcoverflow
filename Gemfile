@@ -24,8 +24,11 @@ group :test, :development do
 end
 
 group :test do
+  gem 'selenium-webdriver'
   gem 'faker'
+  gem 'shoulda'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password

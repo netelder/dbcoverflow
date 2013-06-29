@@ -1,10 +1,12 @@
 require 'spec_helper'
 
 describe User do
+  let(:user) { create(:user)}
+
   context "create" do
     it "adds user to user database" do
-      user = FactoryGirl.create(:user)
-      expect(User.find(user.id)).to eq user
+      user
+      expect(User.first).to eq user
     end
 
     it "doesn't add user if passwords don't match" do
