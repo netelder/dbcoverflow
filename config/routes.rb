@@ -11,7 +11,7 @@ DbcOverflow::Application.routes.draw do
 
   get 'users/:id' => 'users#show', as: :user
 
-  match '/about', :to => redirect('/about.html')
+  get '/about', :to => redirect('/about.html')
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
