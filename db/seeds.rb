@@ -5,6 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+ 
+# get around the mass_assignment constraints during seeding.
+Post.send(:attr_accessible, :user_id)
+Comment.send(:attr_accessible, :user_id, :post_id)
 
 require 'faker'
 
