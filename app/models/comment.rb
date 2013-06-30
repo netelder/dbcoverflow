@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
+  include Voteable
 
-  attr_accessible :text, :user_id, :post_id, :score
+  attr_accessible :text, :score
 
   belongs_to :user
   belongs_to :post
