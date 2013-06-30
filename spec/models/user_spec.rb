@@ -1,11 +1,10 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { create(:user)}
 
   context "create" do
     it "adds user to user database" do
-      user
+      user = FactoryGirl.create(:user)
       expect(User.first).to eq user
     end
 

@@ -4,39 +4,41 @@ require 'support/feature_helpers'
 
 
 describe "User Authentication" do
-	include FeatureHelpers
+  include FeatureHelpers
 
   it "lets a user comment on feedback" do
-	  visit new_user_registration_path
-	  fill_in "user[email]", with: "test@test.me"
-	  fill_in "user[password]", with: "abcabcabc"
-	  fill_in "user[password_confirmation]", with: "abcabcabc"
-		click_button('Sign up') do
-			expect(page).should have_content "Welcome! You have signed up successfully."
-		end
-	end
+    visit new_user_registration_path
 
-	it "prevents new user from enter short password" do
-		visit new_user_registration_path
-	  fill_in "user[email]", with: "test@test.me"
-	  fill_in "user[password]", with: "a"
-	  fill_in "user[password_confirmation]", with: "a"
-		click_button('Sign up') do
-			expect(page).should have_content "Password is too short (minimum is 8 characters)"
-		end
-	end
+    fill_in "user[email]", with: "test@test.me"
+    fill_in "user[password]", with: "abcabcabc"
+    fill_in "user[password_confirmation]", with: "abcabcabc"
+    click_button('Sign up')
 
-	it "prevents new user from entering dup email" do
+    expect(page).to have_content "Welcome! You have signed up successfully."
+  end
+
+  it "prevents new user from enter short password" do
+    visit new_user_registration_path
+
+    fill_in "user[email]", with: "test@test.me"
+    fill_in "user[password]", with: "a"
+    fill_in "user[password_confirmation]", with: "a"
+    click_button('Sign up')
+
+    expect(page).to have_content "Password is too short (minimum is 8 characters)"
+  end
+
+  it "prevents new user from entering dup email" do
     user = FactoryGirl.create(:user)
-    login(user)
-		visit new_user_registration_path
-	  fill_in "user[email]", with: "user.email"
-	  fill_in "user[password]", with: "abcabcabc"
-	  fill_in "user[password_confirmation]", with: "abcabcabc"
-		click_button('Sign up') do
-			expect(page).should have_content "Password is too short (minimum is 8 characters)"
-		end
-	end
+    visit new_user_registration_path
+
+    fill_in "user[email]", with: user.email
+    fill_in "user[password]", with: "abcabcabc"
+    fill_in "user[password_confirmation]", with: "abcabcabc"
+    click_button('Sign up')
+    
+    expect(page).to have_content "Email has already been taken"
+  end
 
 end
 
