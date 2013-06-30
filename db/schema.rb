@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130628220427) do
+ActiveRecord::Schema.define(:version => 20130630043608) do
+
+  create_table "answers", :force => true do |t|
+    t.integer "user_id"
+    t.string  "content",         :default => "", :null => false
+    t.integer "answerable_id"
+    t.string  "answerable_type"
+  end
+
+  add_index "answers", ["user_id", "answerable_id", "answerable_type"], :name => "index_answers_on_user_id_and_answerable_id_and_answerable_type", :unique => true
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
