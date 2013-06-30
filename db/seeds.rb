@@ -12,7 +12,7 @@ user1 = User.create(email: Faker::Internet.email, password: 'password')
 10.times do |i|
   User.create(email: Faker::Internet.email, password: 'password')
   10.times do
-    post = Post.create(title: Faker::Lorem.sentence, text: Faker::Lorem.paragraph, user_id: i+1, score: rand(-10..10))
+    post = Post.create(title: Faker::Lorem.sentence, text: Faker::Lorem.paragraph, user_id: user1.id + 1, score: rand(-10..10))
     10.times do
     	Comment.create(text: Faker::Lorem.paragraph(2), post_id: post.id, user_id: rand((user1.id)..(user1.id + 9)), score: rand(-10..10))
     end
