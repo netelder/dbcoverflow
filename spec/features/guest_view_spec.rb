@@ -9,5 +9,10 @@ describe "guest view" do
     expect(page).not_to have_content(/\A[^@]+@([^@\.]+\.)+[^@\.]+\z/)
   end
 
+  it "lets guests view post content" do
+    @post = FactoryGirl.create(:post, text: "I'm a little teapot")
+    visit post_path(@post)
+    expect(page).to have_content("I'm a little teapot")
+  end
 
 end

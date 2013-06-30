@@ -17,7 +17,7 @@ describe "feedback" do
     fill_in "post[text]", with: "I really don't see why there aren't more cats around here"
     click_button "Give Feedback"
 
-    within ".post_title" do
+    within ".post_header" do
       expect(page).to have_content "DBC should have more cats"
     end
   end
@@ -27,7 +27,7 @@ describe "feedback" do
     
     click_link 'Add Comment'
     fill_in "comment[text]", with: "Some Awesome Feedback"
-    click_button "Post"
+    click_button "Add Comment"
 
     expect(page).to have_content "Some Awesome Feedback"
   end

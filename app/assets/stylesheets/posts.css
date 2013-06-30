@@ -23,6 +23,6 @@
 }
 
 .author a:hover {
-  color: black;
+  color: rgb(25, 187, 201);
   text-decoration: underline;
 }
