@@ -2,7 +2,9 @@
 
 	<div class="comment_box">
 		<%= render partial: 'votes/vote', :locals => { :voteable => comments } %>
-			<span class="comment_span"><%= comments.text %></span>
-		<p>By: <%= comments.user.email %></p>
-	</div>
+   <div class="comment_contents">
+    <span class="comment_span"><%= comments.text %></span>
+    <div class="comment_author">&mdash;<%= comments.user.email %></div>
+  </div>
+</div>
 </div>

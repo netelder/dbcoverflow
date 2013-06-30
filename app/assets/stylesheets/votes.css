@@ -1,0 +1,13 @@
+.vote-button .up {
+  display: block;
+}
+
+.vote-button {
+  text-decoration: none;
+  color: rgb(31, 10, 75);
+  opacity: .25;
+}
+
+.vote-buttons {
+  position: absolute;
+}

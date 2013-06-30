@@ -28,66 +28,12 @@ input {
   margin: 10px 0;
 }
 
-#topnav {
-  background-color: rgb(25, 187, 201);
-  margin: none;
-  padding: 0 15px;
-  height: 50px;
-  position: relative;
-}
-
-.navbar-link {
-  margin: 2px 10px;
-  padding: 5px;
-  float: right;
-  font-size: 1.5em;
-}
-
-a.navbar-link {
-  text-decoration: none;
-  color: white;
-}
-
-a:hover.navbar-link {
-  color: rgb(31, 10, 75);
-}
-
-.brand {
-  float: left;
-}
-
-#topnav #user {
-  color: white;
-  float: right;
-  margin: 8px 10px;
-  padding: 5px;
-}
-
-
-
 h1 {
   font-weight: 900;
 }
 
-.posts_list {
-  list-style-type: none;
+.container {
+  width: 900px;
+  margin: 0 auto;
 }
 
-.post_link {
-  margin: 5px 0 5px 0;
-}
-
-.post_title {
-  margin-top: 30px;
-  font-size: 1.5em;
-}
-
-.vote-button .up {
-  display: block;
-}
-
-.vote-button {
-  text-decoration: none;
-  color: rgb(31, 10, 75);
-  opacity: .25;
-}

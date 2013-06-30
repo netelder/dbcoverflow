@@ -1,0 +1,39 @@
+.post_body {
+  list-style-type: none;
+  width: 60%;
+  font-size: 1em;
+}
+
+.post {
+  list-style-type: none;
+  margin: 30px 0;
+}
+
+.post_title {
+  margin: 5px 0;
+  font-size: 1.3em;
+}
+
+.post_title a {
+  color: rgb(31, 10, 75);
+}
+
+.post_title a:hover {
+  color: rgb(148, 146, 153);
+}
+
+.post_author {
+  color: gray;
+  margin-top: 5px;
+  font-size: .85em;
+}
+
+.post_author a {
+  color: gray;
+  text-decoration: none;
+}
+
+.post_author a:hover {
+  color: black;
+  text-decoration: underline;
+}
