@@ -1,10 +1,15 @@
 <div class="comment">
 
 	<div class="comment_box">
+    <% if user_signed_in? %>
 		<%= render partial: 'votes/vote', :locals => { :voteable => comments } %>
+    <% end %>
    <div class="comment_contents">
     <span class="comment_span"><%= comments.text %></span>
-    <div class="comment_author">&mdash;<%= comments.user.email %></div>
+    <% if user_signed_in? %>
+      <div class="comment_author">&mdash;<%= comments.user.email %></div>
+    <% end %>
+
   </div>
 </div>
 </div>

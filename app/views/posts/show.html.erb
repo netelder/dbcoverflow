@@ -13,11 +13,8 @@
     <div class="author">A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></div>
       <%= link_to "Add Comment", new_post_comment_path(@post) %>
     <% end %>
-    <% if user_signed_in? %>
     <div id="all_comments">
       <%= render partial: "comments", collection: @comments %>
     </div>
-    <% end %>
   </div>
-
 </div>
