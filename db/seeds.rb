@@ -25,3 +25,7 @@ user1 = User.create(email: Faker::Internet.email, password: 'password')
     end
   end
 end
+
+# Just to be safe
+Post.send(:attr_protected, :user_id)
+Comment.send(:attr_protected, :user_id, :post_id)
