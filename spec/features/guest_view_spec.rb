@@ -15,4 +15,10 @@ describe "guest view" do
     expect(page).to have_content("I'm a little teapot")
   end
 
+  it "lets guests view post comments" do
+    @comment = FactoryGirl.create(:comment, text: "Short and stout!")
+    visit post_path(@comment.post_id)
+    expect(page).to have_content("Short and stout!")
+  end
+
 end
