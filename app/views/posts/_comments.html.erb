@@ -7,7 +7,7 @@
    <div class="comment_contents">
     <span class="comment_span"><%= comments.text %></span>
     <% if user_signed_in? %>
-      <div class="comment_author">&mdash;<%= comments.user.email %></div>
+      <div class="comment_author">&mdash;<%= comments.user ? comments.user.email : "deleted user" %></div>
     <% end %>
 
   </div>
