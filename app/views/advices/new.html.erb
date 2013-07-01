@@ -1,0 +1,17 @@
+<% if @comment %>
+	<%= form_for [@post, @comment, @advice] do |f| %>
+	  <%= f.hidden_field :type, :value => @comment.class %>
+	  <%= f.hidden_field :id, :value => @comment.id %>
+	  <%= f.text_area :content, :placeholder => 'give some advice on this comment' %><br>
+	  <%= f.submit "Post" %>
+	<% end %>
+<% else %>
+	<%= form_for [@post, @advice] do |f| %>
+	  <%= f.label :content %>:<br>
+	  <%= f.text_area :content %><br>
+	  <%= f.hidden_field :type, :value => @post.class %>
+	  <%= f.hidden_field :id, :value => @post.id %>
+	  <%= f.submit "Post" %>
+	<% end %>
+<% end %>
+

@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
+gem 'sextant'
 gem 'jquery-rails'
 
 gem 'redis-objects'
@@ -15,17 +16,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
-  gem 'quiet_assets'
-  gem 'sextant'
-end
-
 group :test, :development do
 	gem 'sqlite3'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'webrick', '~> 1.3.1'
 end
 
 group :test do

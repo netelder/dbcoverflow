@@ -1,15 +1,18 @@
 <div class="comment">
-
 	<div class="comment_box">
-    <% if user_signed_in? %>
 		<%= render partial: 'votes/vote', :locals => { :voteable => comments } %>
-    <% end %>
-   <div class="comment_contents">
-    <span class="comment_span"><%= comments.text %></span>
-    <% if user_signed_in? %>
-      <div class="comment_author">&mdash;<%= comments.user ? comments.user.email : "deleted user" %></div>
-    <% end %>
-
-  </div>
-</div>
+		  <%= link_to "Give Advice", new_post_comment_advice_path(@post, comments), class: "add_advice" %>
+		  <% if comments.user_id == current_user.id %>
+		  <%= link_to "Delete", post_comment_path(@post, comments), confirm: 'You sure?', method: :delete, class: "add_advice"%>
+		  <% end %>
+			<span class="comment_span"><%= comments.text %></span>
+		<p>By: <%= comments.user.email %></p>
+	<% if @comment_advice.flatten.first %>
+		<% @comment_advice[comments_counter].each do |a| %>
+		<% if a %>
+			<div class="advice">Advice from <%= a.user.email %>: <%= a.content %></div>
+			<% end %>
+		<% end %>
+	<% end %>
+	</div>
 </div>

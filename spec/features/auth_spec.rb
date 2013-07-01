@@ -12,7 +12,7 @@ describe "User Authentication" do
     fill_in "user[email]", with: "test@test.me"
     fill_in "user[password]", with: "abcabcabc"
     fill_in "user[password_confirmation]", with: "abcabcabc"
-    click_button('Sign up')
+    click_button('>')
 
     expect(page).to have_content "Welcome! You have signed up successfully."
   end
@@ -23,7 +23,7 @@ describe "User Authentication" do
     fill_in "user[email]", with: "test@test.me"
     fill_in "user[password]", with: "a"
     fill_in "user[password_confirmation]", with: "a"
-    click_button('Sign up')
+    click_button('>')
 
     expect(page).to have_content "Password is too short (minimum is 8 characters)"
   end
@@ -35,7 +35,7 @@ describe "User Authentication" do
     fill_in "user[email]", with: user.email
     fill_in "user[password]", with: "abcabcabc"
     fill_in "user[password_confirmation]", with: "abcabcabc"
-    click_button('Sign up')
+    click_button('>')
     
     expect(page).to have_content "Email has already been taken"
   end

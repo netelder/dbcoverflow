@@ -1,28 +1,38 @@
-.post_header {
-  margin-top: 30px;
-  font-size: 1.5em;
+.post_body{
+	list-style-type: none;
+	width: 80%;
 }
 
-#post {
-  margin-top: 40px;
+.comment_div{
+	border-left: 30px;
 }
 
-#post_vote_buttons {
-  font-size: 1.25em;
+.advice {
+	font-size: 12px;
+	color: #808080;
+	margin-left: 40px
 }
 
-.author {
-  margin: 10px 0;
-  color: gray;
-  font-size: .8em;
+
+.post_page {
+	width: 900px;
+	margin: 0 auto;
 }
 
-.author a {
-  color: gray;
-  text-decoration: none;
+#comment_box {
+	margin-top: 20px;
 }
 
-.author a:hover {
-  color: rgb(25, 187, 201);
-  text-decoration: underline;
+
+.comment {
+	margin: 10px 30px;
+}
+
+#post p {
+	margin-left: 85px
+}
+
+.add_advice {
+	padding: 10px;
+	float: right;
 }

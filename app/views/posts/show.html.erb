@@ -1,20 +1,28 @@
 <div class="post_page">
-  <div class="post_header">
+  <div class="post_title">
+    <%= render partial: 'votes/vote', :locals => { :voteable => @post } %>
     <%= @post.title %>
   </div>
-  <% if user_signed_in? %>
-  <div id="post_vote_buttons">
-    <%= render partial: 'votes/vote', :locals => { :voteable => @post } %>
-  </div>
-  <% end %>
   <div id='post'>
-    <p><%= @post.text %></p>
     <% if user_signed_in? %>
-    <div class="author">A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></div>
-      <%= link_to "Add Comment", new_post_comment_path(@post) %>
+      <%= link_to "Give Advice", new_post_advice_path(@post), class: "add_advice" %>
+      <%= link_to "Add Comment", new_post_comment_path(@post), class: "add_advice" %>
     <% end %>
-    <div id="all_comments">
+    <% if @post.user_id == current_user.id %>
+      <%= link_to "Delete", post_path(@post), confirm: 'You sure?', method: :delete, class: "add_advice" %>
+    <% end %>
+    <p><%= @post.text %></p>
+    <p class="author">A suggestion from <%= link_to post_author(@post.user_id), user_path(@post.user_id) %></p>
+    <% if @post_advice %>
+      <%  @post_advice.each do |a| %>
+        <div class="advice">
+          <p>Advice from <%= a[:user_email] %>: <%= a[:content] %></p>
+        </div>
+      <% end %>
+    <% end %>
+    <div id="comment_box">
       <%= render partial: "comments", collection: @comments %>
     </div>
   </div>
+
 </div>

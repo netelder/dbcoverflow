@@ -1,11 +1,11 @@
 class Post < ActiveRecord::Base
-  include Voteable
-  
-  attr_accessible :text, :title, :score
+  attr_accessible :text, :title, :user_id, :score
 
   belongs_to :user
   has_many :comments
   has_many :votes, as: :voteable
+  has_many :advices, as: :adviceable
+
   
   validates :user_id, presence: true
 end

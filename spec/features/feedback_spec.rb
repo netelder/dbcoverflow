@@ -17,7 +17,7 @@ describe "feedback" do
     fill_in "post[text]", with: "I really don't see why there aren't more cats around here"
     click_button "Give Feedback"
 
-    within ".post_header" do
+    within ".post_title" do
       expect(page).to have_content "DBC should have more cats"
     end
   end
@@ -27,46 +27,9 @@ describe "feedback" do
     
     click_link 'Add Comment'
     fill_in "comment[text]", with: "Some Awesome Feedback"
-    click_button "Add Comment"
+    click_button "Post"
 
     expect(page).to have_content "Some Awesome Feedback"
-  end
-
-  it "lets a user vote down a post", js: true do
-    visit post_path(@post)
-
-    within '#post_vote_buttons' do
-      page.find('.icon-thumbs-down').click
-
-      # this within block is using Capybara's wait-for-it strategy to 
-      # wait for the Javascript response to complete
-      # without it, we can't grab the updated score
-      within '.score' do
-        expect(page).not_to have_content "0"
-      end
-
-      score = page.find('.score').text
-      expect(score).to eq "-1"
-    end
-  end
-
-  it "lets a user vote down a comment", js: true do
-    visit post_path(@post)
-
-    click_link 'Add Comment'
-    fill_in "comment[text]", with: "A terrible comment"
-    click_button "Add Comment"
-
-    within '.comment_box' do
-      page.find('.icon-thumbs-down').click
-
-      within '.score' do
-        expect(page).not_to have_content "0"
-      end
-
-      score = page.find('.score').text
-      expect(score).to eq "-1"
-    end
   end
 
 end

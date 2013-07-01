@@ -1,27 +1,9 @@
-.comment_div {
-  border-left: 30px;
-}
-
 .comment {
-  border-top: solid rgb(206, 206, 206) 1px;
+	border: dotted gray 1px;
 	margin-left: 20px;
-	width: 60%;
-  padding: 10px 0;
+	width: 80%;
 }
 
-.comment_author {
-  color: gray;
-  font-size: .8em;
-}
-
-.comment_contents {
-  margin-left: 70px;
-}
-
-.comment_box {
-  position: relative;
-}
-
-#all_comments {
-  margin-top: 20px;
+li .author {
+	color: gray;
 }
